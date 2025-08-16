@@ -1,11 +1,9 @@
 // title, description, dueDate and priority. You might also want to include notes or even a checklist
 export default class Todo {
-  constructor(title, description, dueDate, priority = "normal", notes) {
+  constructor(title, dueDate, priority = "normal") {
     this.title = title;
-    this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.notes = notes;
     this.completed = false;
   }
 
@@ -21,21 +19,15 @@ export default class Todo {
     this.completed = !this.completed;
   }
 
-  update(title, description, dueDate, priority, notes) {
+  update({ title, dueDate, priority }) {
     if (title) {
       this.title = title;
-    }
-    if (description) {
-      this.description = description;
     }
     if (dueDate) {
       this.dueDate = dueDate;
     }
     if (priority) {
       this.priority = priority;
-    }
-    if (notes) {
-      this.notes = notes;
     }
   }
 }

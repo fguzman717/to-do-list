@@ -1,7 +1,5 @@
 export default class TodoList {
-  constructor(listTitle, hashTag = "") {
-    this.listTitle = listTitle;
-    this.hashTag = hashTag;
+  constructor() {
     this.todoList = [];
   }
 
@@ -11,10 +9,6 @@ export default class TodoList {
 
   remove(index) {
     this.todoList.splice(index, 1);
-  }
-
-  renameTitle(newTitle) {
-    this.listTitle = newTitle;
   }
 
   getAll() {
@@ -27,9 +21,5 @@ export default class TodoList {
 
   getCompleted() {
     return this.todoList.filter((todo) => todo.completed);
-  }
-
-  updateHashTag(newHashTag) {
-    this.hashTag = newHashTag;
   }
 }
