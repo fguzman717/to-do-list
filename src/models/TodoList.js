@@ -1,14 +1,19 @@
+import Storage from "./storage.js";
+
 export default class TodoList {
-  constructor() {
-    this.todoList = [];
+  constructor(listTitle) {
+    this.listTitle = listTitle;
+    this.todoList = Storage.getTodos();
   }
 
   add(todo) {
     this.todoList.push(todo);
+    Storage.saveTodos(this.todoList);
   }
 
   remove(index) {
     this.todoList.splice(index, 1);
+    Storage.saveTodos(this.todoList);
   }
 
   getAll() {

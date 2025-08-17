@@ -1,4 +1,3 @@
-// title, description, dueDate and priority. You might also want to include notes or even a checklist
 export default class Todo {
   constructor(title, dueDate, priority = "normal") {
     this.title = title;

@@ -31,7 +31,7 @@ export default function initUI() {
       toggleButton.textContent = todo.completed ? "Undo" : "Completed";
       toggleButton.addEventListener("click", () => {
         todo.toggleComplete();
-        console.log(todo.completed);
+        // console.log(todo.completed);
         renderToDos(todos);
       });
 
