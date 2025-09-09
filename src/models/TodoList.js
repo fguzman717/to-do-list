@@ -3,12 +3,14 @@ import Storage from "./storage.js";
 export default class TodoList {
   constructor(listTitle) {
     this.listTitle = listTitle;
-    this.todoList = Storage.getTodos();
+    this.todoList = [];
+    this.inProgress = [];
+    this.completed = [];
+    this.favorite = false;
   }
 
   add(todo) {
     this.todoList.push(todo);
-    Storage.saveTodos(this.todoList);
   }
 
   remove(index) {
@@ -20,11 +22,23 @@ export default class TodoList {
     return this.todoList;
   }
 
+  getInProgress() {
+    return this.inProgress.filter((todo) => todo.inProgress);
+  }
+
+  addToInProgress() {
+    this.inProgress.push(getInProgress());
+  }
+
   getIncomplete() {
     return this.todoList.filter((todo) => !todo.completed);
   }
 
   getCompleted() {
     return this.todoList.filter((todo) => todo.completed);
+  }
+
+  addToCompleted() {
+    this.completed.push(getCompleted());
   }
 }

@@ -1,8 +1,12 @@
 export default class Todo {
-  constructor(title, dueDate, priority = "normal") {
+  constructor(title, dueDate, dueTime, priority = "low", description) {
     this.title = title;
     this.dueDate = dueDate;
+    this.dueTime = dueTime;
     this.priority = priority;
+    this.description = description;
+    this.checklist = [];
+    this.inProgress = false;
     this.completed = false;
   }
 
@@ -14,11 +18,23 @@ export default class Todo {
     this.completed = false;
   }
 
+  toggleInProgress() {
+    this.inProgress = !this.inProgress;
+  }
+
   toggleComplete() {
     this.completed = !this.completed;
   }
 
-  update({ title, dueDate, priority }) {
+  addToChecklist(item) {
+    this.checklist.push(item);
+  }
+
+  removeFromChecklist(index) {
+    this.checklist.splice(index, 1);
+  }
+
+  update({ title, dueDate, priority, description }) {
     if (title) {
       this.title = title;
     }
@@ -27,6 +43,16 @@ export default class Todo {
     }
     if (priority) {
       this.priority = priority;
+    }
+
+    if (description) {
+      this.description = description;
+    }
+  }
+
+  updatePriority(newPriority) {
+    if (newPriority) {
+      this.priority = newPriority;
     }
   }
 }
