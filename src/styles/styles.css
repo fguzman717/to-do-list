@@ -88,6 +88,14 @@ form#todo-form button:hover {
 
 /********** Collapsed Card Styles **********/
 
+.title-section {
+  padding-right: 1rem;
+}
+
+.content-section {
+  padding: 0 1rem;
+}
+
 .title-section,
 .content-section {
   width: 100%;
@@ -96,26 +104,32 @@ form#todo-form button:hover {
   justify-content: space-between;
   align-items: center;
   margin: 0.5rem 1rem;
-  padding: 0 1rem;
 }
 
 /* To-do Card Title */
 
 .todo-title {
+  border: 1px solid transparent;
+  padding: 0.5rem 18px;
   cursor: pointer;
 }
 
 input#new-title {
-  border: none;
+  margin-left: 10px;
+  padding: 0.5rem 8px;
+  border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: none;
 }
 
 .todo-title,
 input#new-title {
-  padding: 0.5rem 0rem;
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+input#new-title:hover {
+  outline: 1px solid #4338ca;
 }
 
 /* Priority Level */
@@ -234,12 +248,12 @@ input#new-title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid #ddd;
   padding: 0.5rem 0.75rem;
-  min-width: 90px;
-  border-radius: 8px;
-  transition: background-color 0.2s;
-  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.deadline:has(.close-button:hover) {
+  transform: scale(1.05);
 }
 
 #none {
@@ -254,9 +268,21 @@ input#new-title {
 
 input#new-date,
 input#new-time {
-  border: none;
   outline: none;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+  height: 36.5px;
+}
+
+input#new-date:hover,
+input#new-time:hover {
+  outline: 1px solid #4338ca;
+}
+
+.deadline,
+input#new-date,
+input#new-time {
+  border: 1px solid #ddd;
   min-width: 90px;
   border-radius: 8px;
   cursor: pointer;
@@ -289,7 +315,7 @@ input#new-time {
 /* To-Do Edit Buttons */
 
 .edit-actions.cancel {
-  margin: 0 1rem;
+  margin-right: 1rem;
 }
 
 .submit {
